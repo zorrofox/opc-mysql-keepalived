@@ -1,12 +1,12 @@
 
 variable user {
-  default = "greg.huang@oracle.com"
+  default = "<OPC_USER>"
 }
 variable password {
-  default = "Guoguo@1101"
+  default = "<OPC_PASS>"
 }
 variable domain {
-  default = "citiccloud"
+  default = "<OPC_DOMAIN>"
 }
 variable endpoint {
   default = "https://api-z50.compute.us6.oraclecloud.com/"
