@@ -14,10 +14,6 @@ This configuration will create:
 Usage
 -----
 
-### Set account variables
-
-Create a `terraform.tfvars` to set the Oracle Compute Cloud authentication credentials.
-
 ### Setup SSH Keys for instance access
 
 First create an ssh key pair to be used access the instances. The following will create `id_rsa` and `id_rsa.pub` in the local directory.
@@ -27,6 +23,42 @@ $ ssh-keygen -f ./id_rsa -N "" -q
 ```
 
 Alternatively the `ssh_public_key` and `ssh_private_key` variables can be set in `terraform.tfvars` to the file location of an existing ssh key pair.
+
+### Set account variables
+
+Mofiy the `variables.tf` to set the Oracle Compute Cloud authentication credentials.
+
+```
+variable user {
+  default = "<OPC_USER>"
+}
+variable password {
+  default = "<OPC_PASS>"
+}
+variable domain {
+  default = "<OPC_DOMAIN>"
+}
+variable endpoint {
+  default = "https://api-z50.compute.us6.oraclecloud.com/"
+}
+
+variable ssh_user {
+  description = "User account for ssh access to the image"
+  default     = "opc"
+}
+
+variable ssh_private_key {
+  description = "File location of the ssh private key"
+  default     = "~/keys/orcl.pem"
+}
+
+variable ssh_public_key {
+  description = "File location of the ssh public key"
+  default     = "~/keys/orcl_pub.pem"
+}
+```
+
+And we also need add the SSH key pair information about first step created.
 
 ### Apply the configuration
 

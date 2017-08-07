@@ -98,7 +98,7 @@ resource "opc_compute_instance" "instance-1" {
     index = 0
     ip_network = "${opc_compute_ip_network.ip-network-1.name}"
     ip_address = "192.168.2.11"
-    vnic_sets = ["${opc_compute_vnic_set.mysql_01.name}"]
+    vnic_sets = ["${opc_compute_vnic_set.mysql_01.name}", "/Compute-${var.domain}/default"]
     name_servers = ["8.8.8.8"]
   }
   ssh_keys = [ "${opc_compute_ssh_key.ssh_key.name}" ]
@@ -202,7 +202,7 @@ resource "opc_compute_instance" "instance-2" {
     index = 0
     ip_network = "${opc_compute_ip_network.ip-network-1.name}"
     ip_address = "192.168.2.12"
-    vnic_sets = ["${opc_compute_vnic_set.mysql_02.name}"]
+    vnic_sets = ["${opc_compute_vnic_set.mysql_02.name}", "/Compute-${var.domain}/default"]
     name_servers = ["8.8.8.8"]
   }
   ssh_keys = [ "${opc_compute_ssh_key.ssh_key.name}" ]
@@ -325,7 +325,7 @@ resource "opc_compute_instance" "instance-3" {
     index = 1
     ip_network = "${opc_compute_ip_network.ip-network-1.name}"
     ip_address = "192.168.2.101"
-    vnic_sets = ["${opc_compute_vnic_set.nat_set.name}"]
+    vnic_sets = ["${opc_compute_vnic_set.nat_set.name}", "/Compute-${var.domain}/default"]
     name_servers = ["8.8.8.8"]
   }
   ssh_keys = [ "${opc_compute_ssh_key.ssh_key.name}" ]
